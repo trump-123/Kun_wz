@@ -55,9 +55,9 @@ firstState = "GetBall",
 			-- file:close()
 			indir = player.toPlayerDir("Assister","Leader")
 			touchDir = Utils.Normalize(indir + min_dir + nturn * step_dir)
-			temp = gRoleNum["Assister"]
-			gRoleNum["Assister"] = gRoleNum["Leader"]
-			gRoleNum["Leader"] = temp
+			-- temp = gRoleNum["Assister"]
+			-- gRoleNum["Assister"] = gRoleNum["Leader"]
+			-- gRoleNum["Leader"] = temp
 			return "Touch"
 		end
 		
