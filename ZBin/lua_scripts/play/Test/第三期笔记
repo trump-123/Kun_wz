@@ -1,0 +1,134 @@
+第三期笔记
+firstState = "run",
+
+["run"] = {
+	switch = function()
+	angle = angle + math.pi*2/60
+end,
+   Assister = task.goCmuRush(p(1,TOTAL)),
+   Middle   = task.goCmuRush(p(2,TOTAL)),
+   Leader   = task.goCmuRush(p(3,TOTAL)),
+   Special  = task.goCmuRush(p(4,TOTAL)) 
+},
+local TOTAL = 4.0
+local angle = 0
+local radius = 500
+local p = function(n,TOTAL)
+	return function()
+	return CGeoPoint:new_local(radius*math.cos(angle + n*math.pi*2/TOTAL),radius*math.sin(angle+n*math.pi*2/TOTAL))
+	end
+	end
+
+第四课笔记
+vision
+mobilevisionT
+utils:polar2vector
+geometry
+player.lua
+
+	        	
+		    res = ball.pos() + Utils.Polar2Vector(-100,ball.toTheirGoalDir())
+		else
+			res = ball.pos() + Utils.Polar2Vector(0.1*ball.velMod(),ball.velDir())
+	    end
+	    		    if ball.posX() < player.posX(runner) < param.pitchLength/2 then
+		        if ball.posY() < player.posY() then 
+	            res
+
+
+
+
+
+
+	            	local ikick = kick.none
+	local idir = dir.specified(0)
+	local ipre = pre.specified(10)
+	local ikp = kp.specified(100)
+	local icp = cp.specified(200)
+	local iflag = f or flag.nothing
+
+
+
+	function intel()
+	local ipos = function(runner)
+		local res
+		if ball.velMod() < 500 then
+		     --if ball.posX() < player.posX(runner) then
+		         --if x<0 then
+                 res = ball.pos() + Utils.Polar2Vector(200,ball.toTheirGoalDir())
+        		-- else 
+        		-- res = ball.pos() + Utils.Polar2Vector(-200,math.pi) 	
+        else
+         res = ball.pos() + Utils.Polar2Vector(0.1*ball.velMod(),ball.velDir())
+		end
+		return res	
+     end
+     local idir = function(runner)
+        local res 
+    	if ball.velMod() < 500 then
+		--if ball.posX() < player.posX(runner)then
+		    res = ball.toTheirGoalDir()
+		else
+			res = (ball.pos() - player.pos(runner)):dir()
+	    end
+		return res	
+    end
+	local mexe, mpos = GoCmuRush{pos = ipos, dir = idir, acc = a, flag = f,rec = r,vel = v}
+	return {mexe, mpos}
+    end 
+function marking(xmin,xmax,ymin,ymax,i)
+	local num = 0
+	local ourGoal = CGeoPoint:new_local(-param.pitchLength/2.0,0)
+	local between = function(a,min,max)
+		if a > max or a < min then
+			return false
+		else
+			return true
+		end
+	end
+	local  checknum = function()
+	     local num = -1
+	     --local number = 0
+		debugEngine:gui_debug_msg(CGeoPoint:new_local(-1000,200*(7-i)),i.." "..(enemy.valid(i) and "true"or"fasle"))
+		if(enemy.valid(i)) and between(enemy.posX(i),xmin,xmax) and between(enemy.posY(i),ymin,ymax) then
+			return i
+           --number = number+1
+		end
+		--debugEngine:gui_debug_msg(CGeoPoint:new_local(1000,0),number)
+			return num
+	end
+	local idir = function(runner)
+		checknum()
+		num = checknum()
+		local res
+		local enemypos = enemy.pos(num)
+		local ball = ball.pos()
+		if(num >= 0) then
+		   res = (enemypos - ourGoal):dir()
+		else
+		   res = (ball- ourGoal):dir()
+		end
+	return res
+end
+    local ipos = function(runner)
+    	num = checknum()
+    	local res
+    	local ball = ball.pos()
+    	local enemypos = enemy.pos(num)
+    	local l = (ourGoal - enemypos):mod()*0.2
+    	local l1 = (ourGoal - ball):mod()*0.4
+	    	if(num >=0) then
+	    	     res = enemypos + Utils.Polar2Vector(l,(ourGoal - enemypos):dir())
+	        else
+	        	local enemypos1 = enemy.pos(i)
+	        	if(i==5) the
+	             res = ball + Utils.Polar2Vector(l1,(ourGoal - ball):dir())
+	            else
+	             res = enemypos1+ Utils.Polar2Vector(l1,(ourGoal - enemypos1):dir())
+	         end
+	        end
+    return res
+end
+	local mexe, mpos = GoCmuRush{pos = ipos, dir = idir, acc = a, flag = f,rec = r,vel = v}
+	return {mexe, mpos}
+end

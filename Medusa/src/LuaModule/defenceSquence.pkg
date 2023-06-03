@@ -1,0 +1,11 @@
+$#include "geometry.h"
+$#include <vector>
+$#include "staticparams.h"
+$#include "singleton.hpp"
+$#include "defence/defencesequence.h"
+class CDefenceSquence{
+	CDefenceSquence();
+	int getAttackNum(int order);
+	int getFrontAttackNum(int order);
+	int attackerAmount();
+};

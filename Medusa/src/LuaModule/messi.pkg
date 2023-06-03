@@ -1,0 +1,23 @@
+#include "VisionModule.h"
+#include "singleton.h"
+#include "WorldModel.h"
+
+class CMessiDecision
+{
+public:
+    CMessiDecision();
+    void generateAttackDecision(const CVisionModule* pVision);
+    int leaderNum();
+    int receiverNum();
+    CGeoPoint passPos();
+    CGeoPoint flatPassPos();
+    CGeoPoint leaderPos();
+    CGeoPoint receiverPos();
+    CGeoPoint otherPos(int index);
+    CGeoPoint freeKickPos();
+    string nextState();
+    bool needChip();
+    double passVel();
+    double freepassVel();
+    CGeoPoint goaliePassPos();
+}

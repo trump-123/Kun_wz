@@ -1,0 +1,29 @@
+$#include "VisionModule.h"
+$#include <singleton.h>
+$#include "geometry.h"
+$#include "GetBestUtils.h"
+
+class GetBestUtils {
+	GetBestUtils();
+
+	void initialize(const CVisionModule *);
+    void run();
+    CGeoPoint getBestFreeKickPos();
+    CGeoPoint getBestFlatPass();
+    CGeoPoint getBestFlatShoot();
+    float getBestFlatPassQ();
+    float getBestFlatShootQ();
+    int getBestFlatPassNum();
+    int getBestFlatShootNum();
+    int getBestFreePassNum();
+    int getLeader();
+    float getBestFlatPassVel();
+    float getBestFlatShootVel();
+    std::vector<float> getPassParameters();
+    void calculateBestPass();
+    void setLeader(int _leader){ this->leader = _leader; }
+    void setLeaderPos(CGeoPoint leaderPos){ this->leaderPos = leaderPos; }
+    void setReceiver(int _receiver){ this->receiver = _receiver; }
+    //void setNeymar(int _neymar){ neymar = _neymar; }
+    void reset();
+};

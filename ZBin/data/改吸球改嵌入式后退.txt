@@ -1,0 +1,13 @@
+ now_acc: 500 maximum speed: 6.8493150684932 
+ now_acc: 600 maximum speed: 8.2191780821918 
+ now_acc: 700 maximum speed: 1486.301369863 
+ now_acc: 800 maximum speed: 32.876712328767 
+ now_acc: 900 maximum speed: 12.328767123288 
+ now_acc: 1000 maximum speed: 1109.5890410959 
+ now_acc: 1100 maximum speed: 15.068493150685 
+ now_acc: 1200 maximum speed: 197.2602739726 
+ now_acc: 1300 maximum speed: 356.16438356164 
+ now_acc: 1400 maximum speed: 268.49315068493 
+ now_acc: 1500 maximum speed: 410.95890410959 
+ now_acc: 500 maximum speed: 1260.2739726027 
+
